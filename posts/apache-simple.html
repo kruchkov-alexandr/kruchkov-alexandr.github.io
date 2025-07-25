@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>apache-simple</title>
     
-    <!-- Telegram Instant View - Required Properties -->
+    <!-- Instant View Format Properties -->
     <meta property="article:published_time" content="2025-07-25">
     <meta property="article:author" content="Alex Kruchkov">
     <meta property="article:section" content="Technology">
     <meta property="article:tag" content="technology">
     
-    <!-- Open Graph - Required for Instant View -->
+    <!-- Open Graph for Instant View -->
     <meta property="og:type" content="article">
     <meta property="og:title" content="apache-simple">
     <meta property="og:description" content="Blog post about apache-simple">
@@ -30,9 +30,11 @@
     <meta name="robots" content="index, follow">
     
     <style>
-        /* Reset and base styles */
+        /* Instant View Optimized Styles */
         * {
             box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
         
         body {
@@ -40,90 +42,90 @@
             line-height: 1.6;
             color: #333;
             background-color: #ffffff;
-            margin: 0;
-            padding: 0;
+            max-width: 100%;
+            overflow-x: hidden;
         }
         
-        /* Article container - matches Instant View Article type */
-        article {
+        /* Instant View Article Container */
+        .instant-view-article {
             max-width: 800px;
             margin: 0 auto;
             padding: 20px;
+            background: #ffffff;
         }
         
-        /* Header - matches Instant View Header type */
-        header {
+        /* Instant View Header */
+        .instant-view-header {
             margin-bottom: 30px;
             border-bottom: 2px solid #3498db;
             padding-bottom: 20px;
         }
         
-        /* Title - matches Instant View RichText type */
-        h1 {
+        /* Instant View Title (RichText type) */
+        .instant-view-title {
             color: #2c3e50;
             font-size: 2.5em;
-            margin: 0 0 10px 0;
             font-weight: 700;
+            margin: 0 0 10px 0;
+            line-height: 1.2;
         }
         
-        /* Subtitle - matches Instant View Subheader type */
-        .subtitle {
+        /* Instant View Subtitle (Subheader type) */
+        .instant-view-subtitle {
             color: #7f8c8d;
             font-size: 1.2em;
             margin: 0 0 15px 0;
+            font-weight: 400;
         }
         
-        /* Author and date - matches Instant View metadata */
-        .meta {
+        /* Instant View Meta (metadata) */
+        .instant-view-meta {
             color: #6c757d;
             font-size: 0.9em;
             margin-bottom: 20px;
         }
         
-        /* Content - matches Instant View Article body */
-        .content {
+        /* Instant View Content (Article body) */
+        .instant-view-content {
             font-size: 1.1em;
+            line-height: 1.7;
         }
         
-        /* Headings - matches Instant View Header type */
-        h2 {
+        /* Instant View Headers (Header type) */
+        .instant-view-content h1,
+        .instant-view-content h2,
+        .instant-view-content h3,
+        .instant-view-content h4 {
             color: #2c3e50;
-            font-size: 1.8em;
+            font-weight: 600;
             margin: 30px 0 15px 0;
-            font-weight: 600;
+            line-height: 1.3;
         }
         
-        h3 {
-            color: #34495e;
-            font-size: 1.4em;
-            margin: 25px 0 10px 0;
-            font-weight: 600;
-        }
+        .instant-view-content h1 { font-size: 1.8em; }
+        .instant-view-content h2 { font-size: 1.6em; }
+        .instant-view-content h3 { font-size: 1.4em; }
+        .instant-view-content h4 { font-size: 1.2em; }
         
-        h4 {
-            color: #34495e;
-            font-size: 1.2em;
-            margin: 20px 0 10px 0;
-            font-weight: 600;
-        }
-        
-        /* Paragraphs - matches Instant View Paragraph type */
-        p {
+        /* Instant View Paragraphs (Paragraph type) */
+        .instant-view-content p {
             margin: 0 0 15px 0;
             text-align: justify;
+            word-wrap: break-word;
         }
         
-        /* Images - matches Instant View Image type */
-        img {
+        /* Instant View Images (Image type) */
+        .instant-view-content img {
             max-width: 100%;
             height: auto;
             border-radius: 8px;
             margin: 20px 0;
             display: block;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
         
-        /* Code blocks - matches Instant View Preformatted type */
-        pre {
+        /* Instant View Code (Preformatted type) */
+        .instant-view-content pre {
             background-color: #f8f9fa;
             border: 1px solid #e9ecef;
             padding: 15px;
@@ -132,10 +134,11 @@
             font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
             font-size: 0.9em;
             margin: 20px 0;
+            line-height: 1.4;
         }
         
-        /* Inline code - matches Instant View RichText with code */
-        code {
+        /* Instant View Inline Code (RichText with code) */
+        .instant-view-content code {
             background-color: #f8f9fa;
             color: #e83e8c;
             border: 1px solid #e9ecef;
@@ -145,8 +148,8 @@
             font-size: 0.9em;
         }
         
-        /* Blockquotes - matches Instant View Blockquote type */
-        blockquote {
+        /* Instant View Blockquotes (Blockquote type) */
+        .instant-view-content blockquote {
             border-left: 4px solid #3498db;
             background-color: #f8f9fa;
             padding: 15px;
@@ -155,54 +158,60 @@
             font-style: italic;
         }
         
-        /* Links - matches Instant View Anchor type */
-        a {
+        /* Instant View Links (Anchor type) */
+        .instant-view-content a {
             color: #007bff;
             text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-bottom-color 0.2s;
         }
         
-        a:hover {
+        .instant-view-content a:hover {
             color: #0056b3;
-            text-decoration: underline;
+            border-bottom-color: #0056b3;
         }
         
-        /* Lists - matches Instant View List type */
-        ul, ol {
+        /* Instant View Lists (List type) */
+        .instant-view-content ul,
+        .instant-view-content ol {
             padding-left: 20px;
             margin: 15px 0;
         }
         
-        li {
+        .instant-view-content li {
             margin: 5px 0;
+            line-height: 1.5;
         }
         
-        /* Dividers - matches Instant View Divider type */
-        hr {
+        /* Instant View Dividers (Divider type) */
+        .instant-view-content hr {
             border: none;
             border-top: 1px solid #e9ecef;
             margin: 30px 0;
         }
         
-        /* Tables - matches Instant View Table type */
-        table {
+        /* Instant View Tables (Table type) */
+        .instant-view-content table {
             width: 100%;
             border-collapse: collapse;
             margin: 20px 0;
+            font-size: 0.9em;
         }
         
-        th, td {
+        .instant-view-content th,
+        .instant-view-content td {
             border: 1px solid #e9ecef;
             padding: 8px 12px;
             text-align: left;
         }
         
-        th {
+        .instant-view-content th {
             background-color: #f8f9fa;
             font-weight: 600;
         }
         
-        /* Footer - matches Instant View Footer type */
-        footer {
+        /* Instant View Footer */
+        .instant-view-footer {
             margin-top: 40px;
             padding-top: 20px;
             border-top: 1px solid #e9ecef;
@@ -210,33 +219,34 @@
             font-size: 0.9em;
         }
         
-        /* Responsive design */
+        /* Mobile Optimization for Instant View */
         @media (max-width: 768px) {
-            article {
+            .instant-view-article {
                 padding: 15px;
             }
             
-            h1 {
+            .instant-view-title {
                 font-size: 2em;
             }
             
-            h2 {
-                font-size: 1.6em;
-            }
+            .instant-view-content h1 { font-size: 1.6em; }
+            .instant-view-content h2 { font-size: 1.4em; }
+            .instant-view-content h3 { font-size: 1.2em; }
+            .instant-view-content h4 { font-size: 1.1em; }
             
-            h3 {
-                font-size: 1.3em;
+            .instant-view-content p {
+                text-align: left;
             }
         }
         
-        /* Print styles */
+        /* Print styles for Instant View */
         @media print {
             body {
                 background: white;
                 color: black;
             }
             
-            article {
+            .instant-view-article {
                 max-width: none;
                 margin: 0;
                 padding: 0;
@@ -245,20 +255,20 @@
     </style>
 </head>
 <body>
-    <!-- Main article container - matches Instant View Article type -->
-    <article>
-        <!-- Header section - matches Instant View Header type -->
-        <header>
-            <h1>apache-simple</h1>
-            <div class="subtitle">Blog post about apache-simple</div>
-            <div class="meta">
+    <!-- Instant View Article Container -->
+    <div class="instant-view-article">
+        <!-- Instant View Header -->
+        <div class="instant-view-header">
+            <h1 class="instant-view-title">apache-simple</h1>
+            <div class="instant-view-subtitle">Blog post about apache-simple</div>
+            <div class="instant-view-meta">
                 <strong>Автор:</strong> Alex Kruchkov<br>
                 <strong>Дата:</strong> 2025-07-25
             </div>
-        </header>
+        </div>
         
-        <!-- Content section - matches Instant View Article body -->
-        <div class="content">
+        <!-- Instant View Content -->
+        <div class="instant-view-content">
             <h1 id="apache-superset-troubleshooting">Apache SuperSet
             Troubleshooting</h1>
             <figure>
@@ -402,12 +412,12 @@
             <p><em>Теги: #azure #docker #opensource</em></p>
         </div>
         
-        <!-- Footer section - matches Instant View Footer type -->
-        <footer>
+        <!-- Instant View Footer -->
+        <div class="instant-view-footer">
             <hr>
             <p><em>Теги: #technology #blog #instant-view</em></p>
             <p><a href="../index.html">← Назад к блогу</a></p>
-        </footer>
-    </article>
+        </div>
+    </div>
 </body>
 </html> 

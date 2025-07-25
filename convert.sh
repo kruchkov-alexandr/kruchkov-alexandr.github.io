@@ -6,7 +6,7 @@ for file in posts/*.md; do
         filename=$(basename "$file" .md)
         echo "Converting $file to posts/$filename.html"
         
-        # Create HTML with proper structure for Instant View
+        # Create Pure Instant View HTML
         pandoc "$file" \
             --standalone \
             --metadata title="$filename" \
@@ -14,7 +14,7 @@ for file in posts/*.md; do
             --metadata date="$(date +%Y-%m-%d)" \
             --metadata filename="$filename" \
             -o "posts/$filename.html" \
-            --template=template-instant-view.html
+            --template=template-pure-instant-view.html
     fi
 done
 
