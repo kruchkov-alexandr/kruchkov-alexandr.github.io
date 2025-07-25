@@ -1,0 +1,13 @@
+# ====== Telegram Instant View Rules (для kruchkov-alexandr.github.io) ======
+# Скопируйте эти правила в https://instantview.telegram.org (версия 2.1) и сохраните.
+
+version: 2.1
+
+root: //div[@class='tl_page_wrap']
+
+title: //header[contains(@class,'tl_article_header')]//h1[1]
+author: //header//address/a[1]
+
+body: //article[@class='tl_article_content']
+
+ignore: //div[contains(@class,'tl_page_footer')] | //aside[contains(@class,'tl_article_buttons')] 
