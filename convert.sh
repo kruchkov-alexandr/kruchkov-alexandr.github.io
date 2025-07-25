@@ -13,6 +13,7 @@ for file in posts/*.md; do
                 --metadata author="Alex Kruchkov" \
                 --metadata date="$(date +%Y-%m-%d)" \
                 --metadata filename="$filename" \
+                --highlight-style=pygments \
                 -o "posts/$filename.html" \
                 --template=template-telegraph-style.html
     fi
