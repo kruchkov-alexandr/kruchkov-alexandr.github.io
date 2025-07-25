@@ -10,7 +10,7 @@ body {
 }
 
 .wrapper {
-  max-width: 1200px; // Make it wider
+  max-width: 1400px; // Make it even wider
   margin: 0 auto;
   padding: 0 20px;
 }
@@ -33,10 +33,25 @@ header p {
 
 section {
   background-color: #ffffff;
-  padding: 30px;
+  padding: 40px; // More padding for wider content
   border-radius: 8px;
   margin-bottom: 30px;
   border: 1px solid #e9ecef;
+  max-width: none; // Remove any max-width restrictions
+}
+
+// Make post content wider
+.post-content {
+  max-width: none;
+  width: 100%;
+}
+
+// Make images in posts responsive but not too small
+.post-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin: 20px 0;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -71,15 +86,16 @@ code {
 pre {
   background-color: #f8f9fa;
   border: 1px solid #e9ecef;
-  padding: 15px;
+  padding: 20px; // More padding for code blocks
   border-radius: 5px;
   overflow-x: auto;
+  max-width: 100%;
 }
 
 blockquote {
   border-left: 4px solid #007bff;
   background-color: #f8f9fa;
-  padding: 15px;
+  padding: 20px; // More padding for blockquotes
   margin: 20px 0;
   border-radius: 0 5px 5px 0;
 }

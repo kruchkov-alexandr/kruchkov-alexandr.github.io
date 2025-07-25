@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2025-07-25T14:17:24+02:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Alex’s crappy stories</title><subtitle>Блог о моих попытках писать. Возможно, здесь будет что-то интересное.</subtitle><entry><title type="html">Apache</title><link href="http://0.0.0.0:4000/azure/docker/opensource/2025/07/25/apache.html" rel="alternate" type="text/html" title="Apache" /><published>2025-07-25T00:00:00+02:00</published><updated>2025-07-25T00:00:00+02:00</updated><id>http://0.0.0.0:4000/azure/docker/opensource/2025/07/25/apache</id><content type="html" xml:base="http://0.0.0.0:4000/azure/docker/opensource/2025/07/25/apache.html"><![CDATA[<p><img src="/images/2025-07-25-apache.jpg" alt="Apache SuperSet Logo" /></p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2025-07-25T14:42:50+02:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Alex’s crappy stories</title><subtitle>Блог о моих попытках писать. Возможно, здесь будет что-то интересное.</subtitle><entry><title type="html">Apache</title><link href="http://0.0.0.0:4000/apache/" rel="alternate" type="text/html" title="Apache" /><published>2025-07-25T00:00:00+02:00</published><updated>2025-07-25T00:00:00+02:00</updated><id>http://0.0.0.0:4000/apache</id><content type="html" xml:base="http://0.0.0.0:4000/apache/"><![CDATA[<p><img src="/images/2025-07-25-apache.jpg" alt="Apache SuperSet Logo" /></p>
 
 <h2 id="opensource-latest-apache">OpenSource. Latest. Apache.</h2>
 
@@ -35,8 +35,6 @@
 <p>Бегу сравнивать SHA имаджей на SuperSet где работает и где не работает. Всё так, имаджи разные. 🤡 Хотя чарт одинаковый, как и values.yaml</p>
 
 <p>Быстро пушу имадж работающий в внутренний реджистри, чтобы не проетерять в суете.</p>
-
-<h3 id="-временное-решение">🚀 Временное решение</h3>
 
 <p>Для того, чтобы не аффектило юзеров просто меняем image путь вместо дефолтного - на внутренний registry с некрасивым tag в виде sha.</p>
 
@@ -103,12 +101,6 @@
 
 <p>Удобнее в форке держать и это ок.</p>
 
-<h3 id="-итог">🎯 Итог</h3>
-
 <p>А как обычно, мог бы поиском в гугле выйти сразу на репу с кривой либой, но нет, мамкин инженер хочет во всём разобраться пошагово и это просто трата времени.</p>
 
-<p>Ну главное жалоб больше нет, как и рисков latest.</p>
-
-<hr />
-
-<p><em>Теги: #azure #docker #opensource</em></p>]]></content><author><name></name></author><category term="azure" /><category term="docker" /><category term="opensource" /><category term="apache" /><category term="superset" /><category term="trino" /><category term="kubernetes" /><category term="docker" /><category term="troubleshooting" /><summary type="html"><![CDATA[]]></summary></entry></feed>
+<p>Ну главное жалоб больше нет, как и рисков latest.</p>]]></content><author><name></name></author><category term="azure" /><category term="docker" /><category term="opensource" /><category term="apache" /><category term="superset" /><category term="trino" /><category term="kubernetes" /><category term="docker" /><category term="troubleshooting" /><summary type="html"><![CDATA[]]></summary></entry></feed>
