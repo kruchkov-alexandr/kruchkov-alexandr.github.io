@@ -14,7 +14,7 @@ for file in posts/*.md; do
             --metadata date="$(date +%Y-%m-%d)" \
             --metadata filename="$filename" \
             -o "posts/$filename.html" \
-            --template=template.html
+            --template=template-instant-view.html
     fi
 done
 

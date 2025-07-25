@@ -1,0 +1,62 @@
+~version: "2.0"
+
+# Step 1: Define which pages get Instant View
+?exists: //meta[@property="article:published_time"]
+
+# Step 2: Define essential elements - using semantic HTML structure
+body: //article
+title: $body//header/h1[1]
+subtitle: $body//header/div[@class="subtitle"]
+author: $body//header//div[@class="meta"]//strong[contains(text(), "Автор")]/following-sibling::text()[1]
+published_time: $body//header//div[@class="meta"]//strong[contains(text(), "Дата")]/following-sibling::text()[1]
+
+# Step 3: Define content structure
+content: $body//div[@class="content"]
+
+# Step 4: Handle images properly
+@split_parent: //p/img
+
+# Step 5: Clean up unnecessary elements
+@remove: //footer
+@remove: //header
+@remove: //script
+@remove: //style
+@remove: //noscript
+
+# Step 6: Ensure proper content structure
+@remove: //div[@class="back-link"]
+@remove: //div[@class="meta"]
+
+# Step 7: Handle code blocks
+@if( //pre ) {
+  <preformatted>: //pre
+}
+
+# Step 8: Handle blockquotes
+@if( //blockquote ) {
+  <blockquote>: //blockquote
+}
+
+# Step 9: Handle lists
+@if( //ul ) {
+  <list>: //ul
+}
+
+@if( //ol ) {
+  <list>: //ol
+}
+
+# Step 10: Handle tables
+@if( //table ) {
+  <table>: //table
+}
+
+# Step 11: Handle links
+@if( //a ) {
+  <anchor>: //a
+}
+
+# Step 12: Handle images
+@if( //img ) {
+  <image>: //img
+} 
