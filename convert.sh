@@ -12,6 +12,7 @@ for file in posts/*.md; do
             --metadata title="$filename" \
             --metadata author="Alex Kruchkov" \
             --metadata date="$(date +%Y-%m-%d)" \
+            --metadata filename="$filename" \
             -o "posts/$filename.html" \
             --template=template.html
     fi

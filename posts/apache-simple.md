@@ -2,7 +2,7 @@
 
 ![Apache SuperSet Logo](/images/2025-07-25-apache.jpg)
 
-## OpenSource. Latest. Apache.
+## ~OpenSource~. ~Latest~. Apache.
 
 Да, пусть заметка называется **Apache**.
 
