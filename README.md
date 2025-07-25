@@ -121,4 +121,5 @@ git push
 
 ## Дополнительные материалы
 
+- [Настройка Telegram Instant View](INSTANT_VIEW_SETUP.md) - Инструкция по созданию шаблона
 - [Руководство по проверке Instant View](INSTANT_VIEW_GUIDE.md) - Подробная инструкция по тестированию 
