@@ -7,14 +7,14 @@ for file in posts/*.md; do
         echo "Converting $file to posts/$filename.html"
         
         # Create Pure Instant View HTML
-        pandoc "$file" \
-            --standalone \
-            --metadata title="$filename" \
-            --metadata author="Alex Kruchkov" \
-            --metadata date="$(date +%Y-%m-%d)" \
-            --metadata filename="$filename" \
-            -o "posts/$filename.html" \
-                            --template=template-telegraph-style.html
+                    pandoc "$file" \
+                --standalone \
+                --metadata title="$(basename "$filename" .md | sed 's/-/ /g' | sed 's/\b\w/\U&/g')" \
+                --metadata author="Alex Kruchkov" \
+                --metadata date="$(date +%Y-%m-%d)" \
+                --metadata filename="$filename" \
+                -o "posts/$filename.html" \
+                --template=template-telegraph-style.html
     fi
 done
 
