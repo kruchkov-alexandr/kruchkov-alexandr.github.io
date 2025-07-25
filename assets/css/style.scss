@@ -67,6 +67,57 @@ h2#opensource-latest-apache {
   font-style: italic;
 }
 
+// Article styles for Instant View
+article {
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+article header {
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #e9ecef;
+}
+
+article header h1 {
+  font-size: 2.5em;
+  margin-bottom: 10px;
+  color: #2c3e50;
+}
+
+article header time {
+  color: #6c757d;
+  font-size: 0.9em;
+}
+
+article header p {
+  color: #6c757d;
+  margin-top: 5px;
+}
+
+article section {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+article footer {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid #e9ecef;
+  color: #6c757d;
+}
+
+article footer span {
+  background-color: #f8f9fa;
+  padding: 4px 8px;
+  border-radius: 4px;
+  margin-right: 5px;
+  font-size: 0.9em;
+}
+
 a {
   color: #007bff;
 }
@@ -120,5 +171,9 @@ footer p {
   
   section {
     padding: 20px;
+  }
+  
+  article header h1 {
+    font-size: 2em;
   }
 } 
