@@ -610,6 +610,14 @@ h1, h2, h3, h4, h5, h6 {
   color: #2c3e50;
 }
 
+h2#opensource-latest-apache {
+  text-decoration: line-through;
+  text-decoration-color: #dc3545;
+  text-decoration-thickness: 3px;
+  color: #6c757d;
+  font-style: italic;
+}
+
 a {
   color: #007bff;
 }
