@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>apache-simple</title>
+    
+    <!-- Instant View Format Properties -->
+    <meta property="article:published_time" content="2025-07-25">
+    <meta property="article:author" content="Alex Kruchkov">
+    <meta property="article:section" content="Technology">
+    <meta property="article:tag" content="technology">
+    
+    <!-- Open Graph for Instant View -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="apache-simple">
+    <meta property="og:description" content="Blog post about apache-simple">
+    <meta property="og:url" content="https://kruchkov-alexandr.github.io/posts/apache-simple.html">
+    <meta property="og:site_name" content="Alex's Blog">
+    <meta property="og:locale" content="ru_RU">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="apache-simple">
+    <meta name="twitter:description" content="Blog post about apache-simple">
+    
+    <!-- Additional Instant View support -->
+    <meta name="description" content="Blog post about apache-simple">
+    <meta name="author" content="Alex Kruchkov">
+    <meta name="robots" content="index, follow">
+    
+    <style>
+        /* Instant View Optimized Styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #ffffff;
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+        
+        /* Instant View Article Container */
+        .instant-view-article {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #ffffff;
+        }
+        
+        /* Instant View Header */
+        .instant-view-header {
+            margin-bottom: 30px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 20px;
+        }
+        
+        /* Instant View Title (RichText type) */
+        .instant-view-title {
+            color: #2c3e50;
+            font-size: 2.5em;
+            font-weight: 700;
+            margin: 0 0 10px 0;
+            line-height: 1.2;
+        }
+        
+        /* Instant View Subtitle (Subheader type) */
+        .instant-view-subtitle {
+            color: #7f8c8d;
+            font-size: 1.2em;
+            margin: 0 0 15px 0;
+            font-weight: 400;
+        }
+        
+        /* Instant View Meta (metadata) */
+        .instant-view-meta {
+            color: #6c757d;
+            font-size: 0.9em;
+            margin-bottom: 20px;
+        }
+        
+        /* Instant View Content (Article body) */
+        .instant-view-content {
+            font-size: 1.1em;
+            line-height: 1.7;
+        }
+        
+        /* Instant View Headers (Header type) */
+        .instant-view-content h1,
+        .instant-view-content h2,
+        .instant-view-content h3,
+        .instant-view-content h4 {
+            color: #2c3e50;
+            font-weight: 600;
+            margin: 30px 0 15px 0;
+            line-height: 1.3;
+        }
+        
+        .instant-view-content h1 { font-size: 1.8em; }
+        .instant-view-content h2 { font-size: 1.6em; }
+        .instant-view-content h3 { font-size: 1.4em; }
+        .instant-view-content h4 { font-size: 1.2em; }
+        
+        /* Instant View Paragraphs (Paragraph type) */
+        .instant-view-content p {
+            margin: 0 0 15px 0;
+            text-align: justify;
+            word-wrap: break-word;
+        }
+        
+        /* Instant View Images (Image type) */
+        .instant-view-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 20px 0;
+            display: block;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        /* Instant View Code (Preformatted type) */
+        .instant-view-content pre {
+            background-color: #f8f9fa;
+            border: 1px solid #e9ecef;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 0.9em;
+            margin: 20px 0;
+            line-height: 1.4;
+        }
+        
+        /* Instant View Inline Code (RichText with code) */
+        .instant-view-content code {
+            background-color: #f8f9fa;
+            color: #e83e8c;
+            border: 1px solid #e9ecef;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 0.9em;
+        }
+        
+        /* Instant View Blockquotes (Blockquote type) */
+        .instant-view-content blockquote {
+            border-left: 4px solid #3498db;
+            background-color: #f8f9fa;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 5px 5px 0;
+            font-style: italic;
+        }
+        
+        /* Instant View Links (Anchor type) */
+        .instant-view-content a {
+            color: #007bff;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-bottom-color 0.2s;
+        }
+        
+        .instant-view-content a:hover {
+            color: #0056b3;
+            border-bottom-color: #0056b3;
+        }
+        
+        /* Instant View Lists (List type) */
+        .instant-view-content ul,
+        .instant-view-content ol {
+            padding-left: 20px;
+            margin: 15px 0;
+        }
+        
+        .instant-view-content li {
+            margin: 5px 0;
+            line-height: 1.5;
+        }
+        
+        /* Instant View Dividers (Divider type) */
+        .instant-view-content hr {
+            border: none;
+            border-top: 1px solid #e9ecef;
+            margin: 30px 0;
+        }
+        
+        /* Instant View Tables (Table type) */
+        .instant-view-content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.9em;
+        }
+        
+        .instant-view-content th,
+        .instant-view-content td {
+            border: 1px solid #e9ecef;
+            padding: 8px 12px;
+            text-align: left;
+        }
+        
+        .instant-view-content th {
+            background-color: #f8f9fa;
+            font-weight: 600;
+        }
+        
+        /* Instant View Footer */
+        .instant-view-footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #e9ecef;
+            color: #6c757d;
+            font-size: 0.9em;
+        }
+        
+        /* Mobile Optimization for Instant View */
+        @media (max-width: 768px) {
+            .instant-view-article {
+                padding: 15px;
+            }
+            
+            .instant-view-title {
+                font-size: 2em;
+            }
+            
+            .instant-view-content h1 { font-size: 1.6em; }
+            .instant-view-content h2 { font-size: 1.4em; }
+            .instant-view-content h3 { font-size: 1.2em; }
+            .instant-view-content h4 { font-size: 1.1em; }
+            
+            .instant-view-content p {
+                text-align: left;
+            }
+        }
+        
+        /* Print styles for Instant View */
+        @media print {
+            body {
+                background: white;
+                color: black;
+            }
+            
+            .instant-view-article {
+                max-width: none;
+                margin: 0;
+                padding: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Instant View Article Container -->
+    <div class="instant-view-article">
+        <!-- Instant View Header -->
+        <div class="instant-view-header">
+            <h1 class="instant-view-title">apache-simple</h1>
+            <div class="instant-view-subtitle">Blog post about apache-simple</div>
+            <div class="instant-view-meta">
+                <strong>Автор:</strong> Alex Kruchkov<br>
+                <strong>Дата:</strong> 2025-07-25
+            </div>
+        </div>
+        
+        <!-- Instant View Content -->
+        <div class="instant-view-content">
+            <h1 id="apache-superset-troubleshooting">Apache SuperSet
+            Troubleshooting</h1>
+            <figure>
+            <img src="/images/2025-07-25-apache.jpg"
+            alt="Apache SuperSet Logo" />
+            <figcaption aria-hidden="true">Apache SuperSet
+            Logo</figcaption>
+            </figure>
+            <h2 id="opensource.-latest.-apache."><sub>OpenSource</sub>.
+            <sub>Latest</sub>. Apache.</h2>
+            <p>Да, пусть заметка называется <strong>Apache</strong>.</p>
+            <p>Прихожу на работу, а там десяток алёртов жалоб
+            пользователей и всё UI нерабочий. Просто не работает, и
+            никаких алёртов. Ладно.</p>
+            <p>На этом проекте уже не первый день, знаю, что в кишках
+            там внутри проекты с <strong>Apache SuperSet</strong>.</p>
+            <p><a
+            href="https://superset.apache.org/">https://superset.apache.org/</a></p>
+            <p>Иду в UI - да, какая-то ошибка (неизвестная мне). Ошибка
+            говорит проблемы с подключением к каталогу
+            <strong>Trino</strong>.</p>
+            <p><a href="https://trino.io">https://trino.io</a></p>
+            <p>По ссылкам можно зайти, только если это интересно, в
+            целом хватает триггера - <strong>Apache</strong>.</p>
+            <h3 id="диагностика">🔍 Диагностика</h3>
+            <p>Ошибка говорит о том, что невозможно подключится к trino
+            по http (а его и нет), везде написано https (только он и
+            есть). Явно баг.</p>
+            <p>Иду в <strong>кубернетис</strong>, там у нас и трино и
+            суперсет. Методом тыка и быстрого анализа узнаю, что
+            проблема не везде - не на всех инстансах SuperSet.</p>
+            <p>Там, где утром был автоматический апдейт AKS кластер
+            (спасибо за неотключаемый секьюрити патч, мистар Ажур), есть
+            проблема. Где апдейта не было - всё ок работает.</p>
+            <h3 id="docker-images">🐳 Docker Images</h3>
+            <p>Смотрю как устанавливается суперсет - везде хелм чарт и
+            точное указание версии чарта. Ну пусть будет версия
+            <strong>3.0.0</strong>.</p>
+            <p>Но проблема есть и не стоит закрывать глаза на интуицию,
+            что это пока Apache.</p>
+            <p>Смотрю откуда тащится чарт и приходим к GitHub, на то и
+            опенсорс.</p>
+            <p><a
+            href="https://github.com/apache/superset/blob/3.0.0/helm/superset/values.yaml#L178">https://github.com/apache/superset/blob/3.0.0/helm/superset/values.yaml#L178</a></p>
+            <p><strong>Сук, as is это приведёт к latest
+            тегу.</strong></p>
+            <p>Бегу сравнивать SHA имаджей на SuperSet где работает и
+            где не работает. Всё так, имаджи разные. 🤡 Хотя чарт
+            одинаковый, как и values.yaml</p>
+            <p>Быстро пушу имадж работающий в внутренний реджистри,
+            чтобы не проетерять в суете.</p>
+            <h3 id="временное-решение">🚀 Временное решение</h3>
+            <p>Для того, чтобы не аффектило юзеров просто меняем image
+            путь вместо дефолтного - на внутренний registry с некрасивым
+            tag в виде sha.</p>
+            <p>Работа сервиса восстановилась, ошибок нет, пользователи
+            больше не кидают кизяки в нас/меня.</p>
+            <h3 id="root-cause-analysis">🔬 Root Cause Analysis</h3>
+            <p>Есть время потраблшутить: а ну и чего у нас в
+            докерфайле</p>
+            <p><a
+            href="https://github.com/apache/superset/blob/3.0.0/Dockerfile">https://github.com/apache/superset/blob/3.0.0/Dockerfile</a></p>
+            <p>Сук, красота с pip install но вроде не в этом дело.</p>
+            <p>Не понимаю, отупел с облаками🐒, натравливаю нейронку на
+            репу, она говорит мне про</p>
+            <p><a
+            href="https://github.com/apache/superset/blob/3.0.0/setup.py">https://github.com/apache/superset/blob/3.0.0/setup.py</a></p>
+            <p>Ага, значит у нас где-то есть прикрученная к забору
+            версия, а где-то нет. Красиво.</p>
+            <p>Предполагаю в этом причина:</p>
+            <p><a
+            href="https://github.com/apache/superset/blob/3.0.0/setup.py#L177">https://github.com/apache/superset/blob/3.0.0/setup.py#L177</a></p>
+            <h3 id="настоящая-причина">🕵️ Настоящая причина</h3>
+            <p>Начинаю гуглить по всем связанным репозиториям (чтобы
+            сократить вероятность, что копну не туда), хотя я мог бы это
+            сделать с самого начала и не ковыряться в докерах
+            шмокерах.🤡</p>
+            <p><a
+            href="https://github.com/trinodb/trino-python-client/issues/557">https://github.com/trinodb/trino-python-client/issues/557</a></p>
+            <p><strong>То есть проблема не в самом суперсете, а
+            сторонней библиотеке</strong>, которая ставится через
+            <code>trino&gt;=0.324.0</code> и тянет за собой ещё и
+            клиента само собой. И при каждом обновлении докеримаджа для
+            трино каждый раз пере собирается новый, сук, имадж, который
+            по latest идет к ЛЮБОЙ версии чарта.</p>
+            <h3 id="варианты-решения">🤔 Варианты решения</h3>
+            <p>Варианта у нас два (нет, больше, но пусть будет проще
+            так):</p>
+            <ul>
+            <li>Ждать исправление бага и нового чарта хелма от
+            суперсет</li>
+            <li>Перетащить всё к себе и впоследствии менеджить
+            самому</li>
+            </ul>
+            <p>Ещё раз с коллегами оценили опенсорс, риски и решили
+            перетащить докерфайл к себе.</p>
+            <h3 id="создание-форка">🛠️ Создание форка</h3>
+            <p>Создаю новый репозиторий, пихаю туда докерфайл, пайплайн
+            для CICD со сборкой имаджа и публикация по тегам во
+            внутреннем реджистри, requirements.txt</p>
+            <p><strong>Докерфайл простой</strong> (тут уже версия выше,
+            но это другая история):</p>
+            <div class="sourceCode" id="cb1"><pre
+            class="sourceCode dockerfile"><code class="sourceCode dockerfile"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> apachesuperset.docker.scarf.sh/apache/superset:4.1.2</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">USER</span> root</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">COPY</span> requirements.txt /app/requirements.txt</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="kw">RUN</span> <span class="ex">pip</span> install <span class="at">-r</span> /app/requirements.txt</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="kw">USER</span> superset</span></code></pre></div>
+            <p>Открываю тот самый рабочий superset имадж, и командами
+            <code>docker run ...</code> смотрю версии библиотек (вроде
+            команда <code>pip list</code>).</p>
+            <p>Копирую всё оттуда, хардкорю версии в requirements.txt
+            ровно то, что было в рабочем образе.</p>
+            <p>Локальная сборка, тест, коммит, пуш, тегируем
+            <strong>0.0.1</strong>.</p>
+            <h3 id="развертывание">🚀 Развертывание</h3>
+            <p>Сперва dev, потом stage/uat/prod - меняю путь до
+            локального реджистри и тега.</p>
+            <p>Проблема решена и ура, теперь у нас + новый форк
+            имаджа.</p>
+            <h3 id="последствия">✅ Последствия</h3>
+            <p>В последствии оказалось, что это было на <strong>100%
+            верное решение</strong>, потому что у библиотек выходило ещё
+            пару багов и были проблемы другие, а так менеджить свой
+            докерфайл это удобнее, потому что можно добавлять свои
+            библиотеки.</p>
+            <p>Например штатно ни в одной из версий SuperSet не хватает
+            <strong>psycopg2</strong> 🐒</p>
+            <p>Да, это можно добавить в bootstrap, но потом мы захотели
+            включить алертинг, а это подтянуло ещё и selenium webdriver
+            и многое многое другое.</p>
+            <p><a
+            href="https://superset.apache.org/docs/configuration/alerts-reports/">https://superset.apache.org/docs/configuration/alerts-reports/</a></p>
+            <p>Удобнее в форке держать и это ок.</p>
+            <h3 id="итог">🎯 Итог</h3>
+            <p>А как обычно, мог бы поиском в гугле выйти сразу на репу
+            с кривой либой, но нет, мамкин инженер хочет во всём
+            разобраться пошагово и это просто трата времени.</p>
+            <p>Ну главное жалоб больше нет, как и рисков latest.</p>
+            <hr />
+            <p><em>Теги: #azure #docker #opensource</em></p>
+        </div>
+        
+        <!-- Instant View Footer -->
+        <div class="instant-view-footer">
+            <hr>
+            <p><em>Теги: #technology #blog #instant-view</em></p>
+            <p><a href="../index.html">← Назад к блогу</a></p>
+        </div>
+    </div>
+</body>
+</html> 

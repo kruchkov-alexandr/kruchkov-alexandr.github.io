@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test-instant-view</title>
+    
+    <!-- Instant View Format Properties -->
+    <meta property="article:published_time" content="2025-07-25">
+    <meta property="article:author" content="Alex Kruchkov">
+    <meta property="article:section" content="Technology">
+    <meta property="article:tag" content="technology">
+    
+    <!-- Open Graph for Instant View -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="test-instant-view">
+    <meta property="og:description" content="Blog post about test-instant-view">
+    <meta property="og:url" content="https://kruchkov-alexandr.github.io/posts/test-instant-view.html">
+    <meta property="og:site_name" content="Alex's Blog">
+    <meta property="og:locale" content="ru_RU">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="test-instant-view">
+    <meta name="twitter:description" content="Blog post about test-instant-view">
+    
+    <!-- Additional Instant View support -->
+    <meta name="description" content="Blog post about test-instant-view">
+    <meta name="author" content="Alex Kruchkov">
+    <meta name="robots" content="index, follow">
+    
+    <style>
+        /* Instant View Optimized Styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #ffffff;
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+        
+        /* Instant View Article Container */
+        .instant-view-article {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #ffffff;
+        }
+        
+        /* Instant View Header */
+        .instant-view-header {
+            margin-bottom: 30px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 20px;
+        }
+        
+        /* Instant View Title (RichText type) */
+        .instant-view-title {
+            color: #2c3e50;
+            font-size: 2.5em;
+            font-weight: 700;
+            margin: 0 0 10px 0;
+            line-height: 1.2;
+        }
+        
+        /* Instant View Subtitle (Subheader type) */
+        .instant-view-subtitle {
+            color: #7f8c8d;
+            font-size: 1.2em;
+            margin: 0 0 15px 0;
+            font-weight: 400;
+        }
+        
+        /* Instant View Meta (metadata) */
+        .instant-view-meta {
+            color: #6c757d;
+            font-size: 0.9em;
+            margin-bottom: 20px;
+        }
+        
+        /* Instant View Content (Article body) */
+        .instant-view-content {
+            font-size: 1.1em;
+            line-height: 1.7;
+        }
+        
+        /* Instant View Headers (Header type) */
+        .instant-view-content h1,
+        .instant-view-content h2,
+        .instant-view-content h3,
+        .instant-view-content h4 {
+            color: #2c3e50;
+            font-weight: 600;
+            margin: 30px 0 15px 0;
+            line-height: 1.3;
+        }
+        
+        .instant-view-content h1 { font-size: 1.8em; }
+        .instant-view-content h2 { font-size: 1.6em; }
+        .instant-view-content h3 { font-size: 1.4em; }
+        .instant-view-content h4 { font-size: 1.2em; }
+        
+        /* Instant View Paragraphs (Paragraph type) */
+        .instant-view-content p {
+            margin: 0 0 15px 0;
+            text-align: justify;
+            word-wrap: break-word;
+        }
+        
+        /* Instant View Images (Image type) */
+        .instant-view-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 20px 0;
+            display: block;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        /* Instant View Code (Preformatted type) */
+        .instant-view-content pre {
+            background-color: #f8f9fa;
+            border: 1px solid #e9ecef;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 0.9em;
+            margin: 20px 0;
+            line-height: 1.4;
+        }
+        
+        /* Instant View Inline Code (RichText with code) */
+        .instant-view-content code {
+            background-color: #f8f9fa;
+            color: #e83e8c;
+            border: 1px solid #e9ecef;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 0.9em;
+        }
+        
+        /* Instant View Blockquotes (Blockquote type) */
+        .instant-view-content blockquote {
+            border-left: 4px solid #3498db;
+            background-color: #f8f9fa;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 5px 5px 0;
+            font-style: italic;
+        }
+        
+        /* Instant View Links (Anchor type) */
+        .instant-view-content a {
+            color: #007bff;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-bottom-color 0.2s;
+        }
+        
+        .instant-view-content a:hover {
+            color: #0056b3;
+            border-bottom-color: #0056b3;
+        }
+        
+        /* Instant View Lists (List type) */
+        .instant-view-content ul,
+        .instant-view-content ol {
+            padding-left: 20px;
+            margin: 15px 0;
+        }
+        
+        .instant-view-content li {
+            margin: 5px 0;
+            line-height: 1.5;
+        }
+        
+        /* Instant View Dividers (Divider type) */
+        .instant-view-content hr {
+            border: none;
+            border-top: 1px solid #e9ecef;
+            margin: 30px 0;
+        }
+        
+        /* Instant View Tables (Table type) */
+        .instant-view-content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.9em;
+        }
+        
+        .instant-view-content th,
+        .instant-view-content td {
+            border: 1px solid #e9ecef;
+            padding: 8px 12px;
+            text-align: left;
+        }
+        
+        .instant-view-content th {
+            background-color: #f8f9fa;
+            font-weight: 600;
+        }
+        
+        /* Instant View Footer */
+        .instant-view-footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #e9ecef;
+            color: #6c757d;
+            font-size: 0.9em;
+        }
+        
+        /* Mobile Optimization for Instant View */
+        @media (max-width: 768px) {
+            .instant-view-article {
+                padding: 15px;
+            }
+            
+            .instant-view-title {
+                font-size: 2em;
+            }
+            
+            .instant-view-content h1 { font-size: 1.6em; }
+            .instant-view-content h2 { font-size: 1.4em; }
+            .instant-view-content h3 { font-size: 1.2em; }
+            .instant-view-content h4 { font-size: 1.1em; }
+            
+            .instant-view-content p {
+                text-align: left;
+            }
+        }
+        
+        /* Print styles for Instant View */
+        @media print {
+            body {
+                background: white;
+                color: black;
+            }
+            
+            .instant-view-article {
+                max-width: none;
+                margin: 0;
+                padding: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Instant View Article Container -->
+    <div class="instant-view-article">
+        <!-- Instant View Header -->
+        <div class="instant-view-header">
+            <h1 class="instant-view-title">test-instant-view</h1>
+            <div class="instant-view-subtitle">Blog post about test-instant-view</div>
+            <div class="instant-view-meta">
+                <strong>Автор:</strong> Alex Kruchkov<br>
+                <strong>Дата:</strong> 2025-07-25
+            </div>
+        </div>
+        
+        <!-- Instant View Content -->
+        <div class="instant-view-content">
+            <h1 id="тестовая-статья-для-instant-view">Тестовая статья
+            для Instant View</h1>
+            <figure>
+            <img src="/images/2025-07-25-apache.jpg"
+            alt="Тестовая картинка" />
+            <figcaption aria-hidden="true">Тестовая
+            картинка</figcaption>
+            </figure>
+            <p>Это тестовая статья для проверки работы <strong>Telegram
+            Instant View</strong>.</p>
+            <h2 id="что-такое-instant-view">Что такое Instant View?</h2>
+            <p>Instant View позволяет пользователям Telegram
+            просматривать веб-статьи в единообразном и легко читаемом
+            формате с нулевым временем загрузки.</p>
+            <h3 id="преимущества-instant-view">Преимущества Instant
+            View</h3>
+            <ul>
+            <li>✅ <strong>Быстрая загрузка</strong> - страницы
+            кэшируются на серверах Telegram</li>
+            <li>✅ <strong>Единообразный дизайн</strong> - все статьи
+            выглядят одинаково</li>
+            <li>✅ <strong>Мобильная оптимизация</strong> - работает
+            даже на медленных соединениях</li>
+            <li>✅ <strong>Без рекламы</strong> - чистый контент без
+            отвлекающих элементов</li>
+            </ul>
+            <h2 id="технические-детали">Технические детали</h2>
+            <h3 id="поддерживаемые-элементы">Поддерживаемые
+            элементы</h3>
+            <ul>
+            <li><strong>Заголовки</strong> (H1, H2, H3, etc.)</li>
+            <li><strong>Изображения</strong> с автоматическим
+            масштабированием</li>
+            <li><strong>Ссылки</strong> с правильной обработкой</li>
+            <li><strong>Код</strong> с подсветкой синтаксиса</li>
+            <li><strong>Списки</strong> (маркированные и
+            нумерованные)</li>
+            <li><strong>Цитаты</strong> и блоки текста</li>
+            </ul>
+            <h3 id="пример-кода">Пример кода</h3>
+            <div class="sourceCode" id="cb1"><pre
+            class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Тестовая команда</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">&quot;Hello, Instant View!&quot;</span></span></code></pre></div>
+            <h3 id="пример-списка">Пример списка</h3>
+            <ul>
+            <li>Первый пункт</li>
+            <li>Второй пункт</li>
+            <li>Третий пункт</li>
+            </ul>
+            <h2 id="проверка-работы">Проверка работы</h2>
+            <p>После публикации этой статьи на GitHub Pages, вы
+            сможете:</p>
+            <ol type="1">
+            <li>Отправить ссылку в Telegram</li>
+            <li>Нажать кнопку <strong>Instant View</strong></li>
+            <li>Увидеть красивую версию статьи</li>
+            </ol>
+            <hr />
+            <p><em>Теги: #telegram #instant-view #github-pages</em></p>
+        </div>
+        
+        <!-- Instant View Footer -->
+        <div class="instant-view-footer">
+            <hr>
+            <p><em>Теги: #technology #blog #instant-view</em></p>
+            <p><a href="../index.html">← Назад к блогу</a></p>
+        </div>
+    </div>
+</body>
+</html> 
